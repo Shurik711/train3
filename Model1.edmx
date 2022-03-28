@@ -1,0 +1,679 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Train3Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADRESS">
+          <Key>
+            <PropertyRef Name="IDA" />
+          </Key>
+          <Property Name="IDA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MAGAZINE_NUMBER" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ADRESS" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID" Type="int" />
+        </EntityType>
+        <EntityType Name="INFO">
+          <Key>
+            <PropertyRef Name="IDI" />
+          </Key>
+          <Property Name="IDI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ADRESS" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PHONE_NUMBER" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID" Type="int" />
+        </EntityType>
+        <EntityType Name="NACHALSTVO">
+          <Key>
+            <PropertyRef Name="IDN" />
+          </Key>
+          <Property Name="IDN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DOLZNOST" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID" Type="int" />
+        </EntityType>
+        <EntityType Name="PRIBYL">
+          <Key>
+            <PropertyRef Name="IDP" />
+          </Key>
+          <Property Name="IDP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATA" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PRIBYL_ZA_DAY" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID" Type="int" />
+        </EntityType>
+        <EntityType Name="RASHODY">
+          <Key>
+            <PropertyRef Name="IDR" />
+          </Key>
+          <Property Name="IDR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATA" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PRIBYL_ZA_DAY" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID" Type="int" />
+        </EntityType>
+        <EntityType Name="SKLAD">
+          <Key>
+            <PropertyRef Name="IDSK" />
+          </Key>
+          <Property Name="IDSK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="KATEGORY" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PRICE" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="KOLVO" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID" Type="int" />
+        </EntityType>
+        <EntityType Name="SOTRUDNIKI">
+          <Key>
+            <PropertyRef Name="IDS" />
+          </Key>
+          <Property Name="IDS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DOLZNOST" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="STAVKA" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID" Type="int" />
+        </EntityType>
+        <EntityType Name="TOVARY">
+          <Key>
+            <PropertyRef Name="IDT" />
+          </Key>
+          <Property Name="IDT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="KATEGORY" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PRICE" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID" Type="int" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LOGIN" Type="nvarchar" MaxLength="100" />
+          <Property Name="PASSWORD" Type="nvarchar" MaxLength="100" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="100" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="100" />
+          <Property Name="PHONE_NUMBER" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZAKAZY">
+          <Key>
+            <PropertyRef Name="IDZ" />
+          </Key>
+          <Property Name="IDZ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ZAKAZSHICK" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PRICE" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SROK" Type="nvarchar" MaxLength="100" />
+          <Property Name="ID" Type="int" />
+        </EntityType>
+        <Association Name="FK__ADRESS__ID__46E78A0C">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="ADRESS" Type="Self.ADRESS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ADRESS">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INFO__ID__3B75D760">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="INFO" Type="Self.INFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INFO">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NACHALSTVO__ID__412EB0B6">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="NACHALSTVO" Type="Self.NACHALSTVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NACHALSTVO">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRIBYL__ID__4CA06362">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="PRIBYL" Type="Self.PRIBYL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRIBYL">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RASHODY__ID__4F7CD00D">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="RASHODY" Type="Self.RASHODY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RASHODY">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SKLAD__ID__440B1D61">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="SKLAD" Type="Self.SKLAD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SKLAD">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SOTRUDNIKI__ID__3E52440B">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="SOTRUDNIKI" Type="Self.SOTRUDNIKI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SOTRUDNIKI">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TOVARY__ID__38996AB5">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="TOVARY" Type="Self.TOVARY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TOVARY">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZAKAZY__ID__49C3F6B7">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="ZAKAZY" Type="Self.ZAKAZY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ZAKAZY">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Train3ModelContainer">
+          <EntitySet Name="ADRESS" EntityType="Self.ADRESS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INFO" EntityType="Self.INFO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NACHALSTVO" EntityType="Self.NACHALSTVO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRIBYL" EntityType="Self.PRIBYL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RASHODY" EntityType="Self.RASHODY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SKLAD" EntityType="Self.SKLAD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SOTRUDNIKI" EntityType="Self.SOTRUDNIKI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TOVARY" EntityType="Self.TOVARY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZAKAZY" EntityType="Self.ZAKAZY" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ADRESS__ID__46E78A0C" Association="Self.FK__ADRESS__ID__46E78A0C">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="ADRESS" EntitySet="ADRESS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INFO__ID__3B75D760" Association="Self.FK__INFO__ID__3B75D760">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="INFO" EntitySet="INFO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NACHALSTVO__ID__412EB0B6" Association="Self.FK__NACHALSTVO__ID__412EB0B6">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="NACHALSTVO" EntitySet="NACHALSTVO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRIBYL__ID__4CA06362" Association="Self.FK__PRIBYL__ID__4CA06362">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="PRIBYL" EntitySet="PRIBYL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RASHODY__ID__4F7CD00D" Association="Self.FK__RASHODY__ID__4F7CD00D">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="RASHODY" EntitySet="RASHODY" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SKLAD__ID__440B1D61" Association="Self.FK__SKLAD__ID__440B1D61">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="SKLAD" EntitySet="SKLAD" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SOTRUDNIKI__ID__3E52440B" Association="Self.FK__SOTRUDNIKI__ID__3E52440B">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="SOTRUDNIKI" EntitySet="SOTRUDNIKI" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TOVARY__ID__38996AB5" Association="Self.FK__TOVARY__ID__38996AB5">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="TOVARY" EntitySet="TOVARY" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZAKAZY__ID__49C3F6B7" Association="Self.FK__ZAKAZY__ID__49C3F6B7">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="ZAKAZY" EntitySet="ZAKAZY" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Train3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADRESS">
+          <Key>
+            <PropertyRef Name="IDA" />
+          </Key>
+          <Property Name="IDA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MAGAZINE_NUMBER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ADRESS1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" />
+          <NavigationProperty Name="USERS" Relationship="Self.FK__ADRESS__ID__46E78A0C" FromRole="ADRESS" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="INFO">
+          <Key>
+            <PropertyRef Name="IDI" />
+          </Key>
+          <Property Name="IDI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ADRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PHONE_NUMBER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" />
+          <NavigationProperty Name="USERS" Relationship="Self.FK__INFO__ID__3B75D760" FromRole="INFO" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="NACHALSTVO">
+          <Key>
+            <PropertyRef Name="IDN" />
+          </Key>
+          <Property Name="IDN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DOLZNOST" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" />
+          <NavigationProperty Name="USERS" Relationship="Self.FK__NACHALSTVO__ID__412EB0B6" FromRole="NACHALSTVO" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="PRIBYL">
+          <Key>
+            <PropertyRef Name="IDP" />
+          </Key>
+          <Property Name="IDP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PRIBYL_ZA_DAY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" />
+          <NavigationProperty Name="USERS" Relationship="Self.FK__PRIBYL__ID__4CA06362" FromRole="PRIBYL" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="RASHODY">
+          <Key>
+            <PropertyRef Name="IDR" />
+          </Key>
+          <Property Name="IDR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PRIBYL_ZA_DAY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" />
+          <NavigationProperty Name="USERS" Relationship="Self.FK__RASHODY__ID__4F7CD00D" FromRole="RASHODY" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="SKLAD">
+          <Key>
+            <PropertyRef Name="IDSK" />
+          </Key>
+          <Property Name="IDSK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KATEGORY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PRICE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KOLVO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" />
+          <NavigationProperty Name="USERS" Relationship="Self.FK__SKLAD__ID__440B1D61" FromRole="SKLAD" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="SOTRUDNIKI">
+          <Key>
+            <PropertyRef Name="IDS" />
+          </Key>
+          <Property Name="IDS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DOLZNOST" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="STAVKA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" />
+          <NavigationProperty Name="USERS" Relationship="Self.FK__SOTRUDNIKI__ID__3E52440B" FromRole="SOTRUDNIKI" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="TOVARY">
+          <Key>
+            <PropertyRef Name="IDT" />
+          </Key>
+          <Property Name="IDT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KATEGORY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PRICE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" />
+          <NavigationProperty Name="USERS" Relationship="Self.FK__TOVARY__ID__38996AB5" FromRole="TOVARY" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LOGIN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PASSWORD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FIO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PHONE_NUMBER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ADRESS" Relationship="Self.FK__ADRESS__ID__46E78A0C" FromRole="USERS" ToRole="ADRESS" />
+          <NavigationProperty Name="INFO" Relationship="Self.FK__INFO__ID__3B75D760" FromRole="USERS" ToRole="INFO" />
+          <NavigationProperty Name="NACHALSTVO" Relationship="Self.FK__NACHALSTVO__ID__412EB0B6" FromRole="USERS" ToRole="NACHALSTVO" />
+          <NavigationProperty Name="PRIBYL" Relationship="Self.FK__PRIBYL__ID__4CA06362" FromRole="USERS" ToRole="PRIBYL" />
+          <NavigationProperty Name="RASHODY" Relationship="Self.FK__RASHODY__ID__4F7CD00D" FromRole="USERS" ToRole="RASHODY" />
+          <NavigationProperty Name="SKLAD" Relationship="Self.FK__SKLAD__ID__440B1D61" FromRole="USERS" ToRole="SKLAD" />
+          <NavigationProperty Name="SOTRUDNIKI" Relationship="Self.FK__SOTRUDNIKI__ID__3E52440B" FromRole="USERS" ToRole="SOTRUDNIKI" />
+          <NavigationProperty Name="TOVARY" Relationship="Self.FK__TOVARY__ID__38996AB5" FromRole="USERS" ToRole="TOVARY" />
+          <NavigationProperty Name="ZAKAZY" Relationship="Self.FK__ZAKAZY__ID__49C3F6B7" FromRole="USERS" ToRole="ZAKAZY" />
+        </EntityType>
+        <EntityType Name="ZAKAZY">
+          <Key>
+            <PropertyRef Name="IDZ" />
+          </Key>
+          <Property Name="IDZ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ZAKAZSHICK" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PRICE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SROK" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" />
+          <NavigationProperty Name="USERS" Relationship="Self.FK__ZAKAZY__ID__49C3F6B7" FromRole="ZAKAZY" ToRole="USERS" />
+        </EntityType>
+        <Association Name="FK__ADRESS__ID__46E78A0C">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="ADRESS" Type="Self.ADRESS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ADRESS">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INFO__ID__3B75D760">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="INFO" Type="Self.INFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INFO">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NACHALSTVO__ID__412EB0B6">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="NACHALSTVO" Type="Self.NACHALSTVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NACHALSTVO">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRIBYL__ID__4CA06362">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="PRIBYL" Type="Self.PRIBYL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRIBYL">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RASHODY__ID__4F7CD00D">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="RASHODY" Type="Self.RASHODY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RASHODY">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SKLAD__ID__440B1D61">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="SKLAD" Type="Self.SKLAD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SKLAD">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SOTRUDNIKI__ID__3E52440B">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="SOTRUDNIKI" Type="Self.SOTRUDNIKI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SOTRUDNIKI">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TOVARY__ID__38996AB5">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="TOVARY" Type="Self.TOVARY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TOVARY">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZAKAZY__ID__49C3F6B7">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="ZAKAZY" Type="Self.ZAKAZY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ZAKAZY">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Train3Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADRESS" EntityType="Self.ADRESS" />
+          <EntitySet Name="INFO" EntityType="Self.INFO" />
+          <EntitySet Name="NACHALSTVO" EntityType="Self.NACHALSTVO" />
+          <EntitySet Name="PRIBYL" EntityType="Self.PRIBYL" />
+          <EntitySet Name="RASHODY" EntityType="Self.RASHODY" />
+          <EntitySet Name="SKLAD" EntityType="Self.SKLAD" />
+          <EntitySet Name="SOTRUDNIKI" EntityType="Self.SOTRUDNIKI" />
+          <EntitySet Name="TOVARY" EntityType="Self.TOVARY" />
+          <EntitySet Name="USERS" EntityType="Self.USERS" />
+          <EntitySet Name="ZAKAZY" EntityType="Self.ZAKAZY" />
+          <AssociationSet Name="FK__ADRESS__ID__46E78A0C" Association="Self.FK__ADRESS__ID__46E78A0C">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="ADRESS" EntitySet="ADRESS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INFO__ID__3B75D760" Association="Self.FK__INFO__ID__3B75D760">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="INFO" EntitySet="INFO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NACHALSTVO__ID__412EB0B6" Association="Self.FK__NACHALSTVO__ID__412EB0B6">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="NACHALSTVO" EntitySet="NACHALSTVO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRIBYL__ID__4CA06362" Association="Self.FK__PRIBYL__ID__4CA06362">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="PRIBYL" EntitySet="PRIBYL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RASHODY__ID__4F7CD00D" Association="Self.FK__RASHODY__ID__4F7CD00D">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="RASHODY" EntitySet="RASHODY" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SKLAD__ID__440B1D61" Association="Self.FK__SKLAD__ID__440B1D61">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="SKLAD" EntitySet="SKLAD" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SOTRUDNIKI__ID__3E52440B" Association="Self.FK__SOTRUDNIKI__ID__3E52440B">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="SOTRUDNIKI" EntitySet="SOTRUDNIKI" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TOVARY__ID__38996AB5" Association="Self.FK__TOVARY__ID__38996AB5">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="TOVARY" EntitySet="TOVARY" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZAKAZY__ID__49C3F6B7" Association="Self.FK__ZAKAZY__ID__49C3F6B7">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="ZAKAZY" EntitySet="ZAKAZY" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Train3ModelContainer" CdmEntityContainer="Train3Entities1">
+          <EntitySetMapping Name="ADRESS">
+            <EntityTypeMapping TypeName="Train3Model.ADRESS">
+              <MappingFragment StoreEntitySet="ADRESS">
+                <ScalarProperty Name="IDA" ColumnName="IDA" />
+                <ScalarProperty Name="MAGAZINE_NUMBER" ColumnName="MAGAZINE_NUMBER" />
+                <ScalarProperty Name="ADRESS1" ColumnName="ADRESS" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INFO">
+            <EntityTypeMapping TypeName="Train3Model.INFO">
+              <MappingFragment StoreEntitySet="INFO">
+                <ScalarProperty Name="IDI" ColumnName="IDI" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ADRESS" ColumnName="ADRESS" />
+                <ScalarProperty Name="PHONE_NUMBER" ColumnName="PHONE_NUMBER" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NACHALSTVO">
+            <EntityTypeMapping TypeName="Train3Model.NACHALSTVO">
+              <MappingFragment StoreEntitySet="NACHALSTVO">
+                <ScalarProperty Name="IDN" ColumnName="IDN" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="DOLZNOST" ColumnName="DOLZNOST" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRIBYL">
+            <EntityTypeMapping TypeName="Train3Model.PRIBYL">
+              <MappingFragment StoreEntitySet="PRIBYL">
+                <ScalarProperty Name="IDP" ColumnName="IDP" />
+                <ScalarProperty Name="DATA" ColumnName="DATA" />
+                <ScalarProperty Name="PRIBYL_ZA_DAY" ColumnName="PRIBYL_ZA_DAY" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RASHODY">
+            <EntityTypeMapping TypeName="Train3Model.RASHODY">
+              <MappingFragment StoreEntitySet="RASHODY">
+                <ScalarProperty Name="IDR" ColumnName="IDR" />
+                <ScalarProperty Name="DATA" ColumnName="DATA" />
+                <ScalarProperty Name="PRIBYL_ZA_DAY" ColumnName="PRIBYL_ZA_DAY" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SKLAD">
+            <EntityTypeMapping TypeName="Train3Model.SKLAD">
+              <MappingFragment StoreEntitySet="SKLAD">
+                <ScalarProperty Name="IDSK" ColumnName="IDSK" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="KATEGORY" ColumnName="KATEGORY" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="KOLVO" ColumnName="KOLVO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SOTRUDNIKI">
+            <EntityTypeMapping TypeName="Train3Model.SOTRUDNIKI">
+              <MappingFragment StoreEntitySet="SOTRUDNIKI">
+                <ScalarProperty Name="IDS" ColumnName="IDS" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="DOLZNOST" ColumnName="DOLZNOST" />
+                <ScalarProperty Name="STAVKA" ColumnName="STAVKA" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TOVARY">
+            <EntityTypeMapping TypeName="Train3Model.TOVARY">
+              <MappingFragment StoreEntitySet="TOVARY">
+                <ScalarProperty Name="IDT" ColumnName="IDT" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="KATEGORY" ColumnName="KATEGORY" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERS">
+            <EntityTypeMapping TypeName="Train3Model.USERS">
+              <MappingFragment StoreEntitySet="USERS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PHONE_NUMBER" ColumnName="PHONE_NUMBER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZAKAZY">
+            <EntityTypeMapping TypeName="Train3Model.ZAKAZY">
+              <MappingFragment StoreEntitySet="ZAKAZY">
+                <ScalarProperty Name="IDZ" ColumnName="IDZ" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ZAKAZSHICK" ColumnName="ZAKAZSHICK" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="SROK" ColumnName="SROK" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="13a47ed9c2ab4a169c04f6c0eeacc8bb" Name="Diagram1">
+        <EntityTypeShape EntityType="Train3Model.ADRESS" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Train3Model.INFO" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Train3Model.NACHALSTVO" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Train3Model.PRIBYL" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Train3Model.RASHODY" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Train3Model.SKLAD" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Train3Model.SOTRUDNIKI" Width="1.5" PointX="3" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="Train3Model.TOVARY" Width="1.5" PointX="3" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="Train3Model.USERS" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Train3Model.ZAKAZY" Width="1.5" PointX="3" PointY="24.875" IsExpanded="true" />
+        <AssociationConnector Association="Train3Model.FK__ADRESS__ID__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="Train3Model.FK__INFO__ID__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="Train3Model.FK__NACHALSTVO__ID__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="Train3Model.FK__PRIBYL__ID__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="Train3Model.FK__RASHODY__ID__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="Train3Model.FK__SKLAD__ID__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="Train3Model.FK__SOTRUDNIKI__ID__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="Train3Model.FK__TOVARY__ID__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="Train3Model.FK__ZAKAZY__ID__49C3F6B7" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
